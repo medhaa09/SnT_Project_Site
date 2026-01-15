@@ -12,7 +12,7 @@ body{
      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #333;
-            min-height: 100vh;
+            min-height: 50vh;
             display:flex;
             flex-direction: column;
             align-items: center;
@@ -41,8 +41,8 @@ body{
   gap: 20px;
   box-sizing: border-box;
   border-radius: 16px;
-  min-height:50vh;
-  min-width:40vw;
+  min-height:28vh;
+  min-width:30vw;
 }
 
 .form-container button:active {
@@ -122,6 +122,7 @@ body{
   margin-top: 8px;
   cursor: pointer;
   border-radius: 6px;
+  position: center;
 }
 
 .form-container .form-submit-btn:hover {
@@ -283,7 +284,7 @@ body{
   text-decoration: none;
    background: linear-gradient(135deg, #667eea, #764ba2);
    width:50%;
-   margin-left:100px;
+   margin-left:165px;
 }
 #form-btn:hover{
     transform:translateY(-2px);
