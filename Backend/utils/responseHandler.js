@@ -3,6 +3,5 @@ exports.success = (res, data, message = 'Success') => {
 };
 
 exports.error = (res, error, status = 500) => {
-  console.error(error);
-  res.status(status).json({ success: false, message: error.message || 'Server Error' });
+  res.status(error.status || status).json({ success: false, message: error.message || 'Server Error' });
 };

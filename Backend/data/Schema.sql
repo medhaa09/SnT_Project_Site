@@ -17,7 +17,7 @@ CREATE TABLE Projects (
     Duration INT CHECK (Duration > 0),
     ClubID INT NOT NULL,
     Description TEXT,
-    Difficulty ENUM('Beginner', 'Intermediate', 'Advanced') NOT NULL,
+    Difficulty ENUM('Beginner', 'Intermediate', 'Advanced'),
     Objective TEXT,
     Methodology TEXT,
     CoverImage VARCHAR(2083), -- accommodates full URL length
