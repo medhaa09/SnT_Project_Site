@@ -46,13 +46,13 @@ body {
   overflow: hidden;
 } */
 .club-card {
-  background: linear-gradient(145deg, #1a1a1a, #3a3a3a);
+  background: rgb(27, 25, 25);
   border-radius: 20px;
   padding: 30px;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  border: 1px solid #f0f0f0; /* Light border color */
+  border: 1px solid #f0f0f0;
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -76,7 +76,7 @@ body {
 
 .club-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
   border-color: #667eea;
 }
 
@@ -86,8 +86,8 @@ body {
 
 /* Club Icon/Image Styles */
 .club-icon {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto 25px;
   border-radius: 50%;
   overflow: hidden;
@@ -95,14 +95,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 36px;
+  font-size: 40px;
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
 }
 
 .club-icon img {
-   width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -110,8 +111,8 @@ body {
 }
 
 .club-card:hover .club-icon {
-  transform: scale(1.1);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  transform: scale(1.15);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
   transition: all 0.3s ease;
 }
 /* Text Styles */
@@ -185,9 +186,10 @@ body {
   }
 
   .club-icon {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     margin-bottom: 20px;
+    font-size: 35px;
   }
 
   .club-name {
@@ -202,27 +204,27 @@ body {
 @media (max-width: 480px) {
   .clubs-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .club-card {
     padding: 20px 15px;
   }
-}
 
-/* Animation for staggered entrance */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+  .club-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 30px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .club-name {
+    font-size: 18px;
   }
 }
 
+/* Animation handled by AOS library */
 .club-card[data-aos="fade-up"] {
-  animation: fadeInUp 0.8s ease forwards;
+  /* AOS will handle the animation timing and delay */
 }
 
 /* Focus states for accessibility */
@@ -259,8 +261,4 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.club-card {
-  border: 1px solid #f0f0f0;
 }
