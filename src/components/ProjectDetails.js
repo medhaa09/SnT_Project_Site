@@ -37,36 +37,40 @@ const ProjectDetails = () => {
             </div>
           </div>
         </div>
-        <button className="back-btn" onClick={() => navigate(-1)}>Back</button>
-        <div className="pro-section">
-          <h2 className="pro-section-title">Roadmap to {project.title} <span role="img" aria-label="roadmap">🗺️</span></h2>
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          <span role="img" aria-label="back">⬅️</span> Back
+        </button>
+        <div className="pro-section pro-section-divider">
+          <h2 className="pro-section-title">
+            <span role="img" aria-label="roadmap">🗺️</span> Roadmap to {project.title}
+          </h2>
           <p className="pro-desc-main">{project.description}</p>
         </div>
         {project.objectives && (
-          <div className="pro-section">
-            <h3 className="pro-section-title">Objectives <span role="img" aria-label="target">🎯</span></h3>
+          <div className="pro-section pro-section-card">
+            <h3 className="pro-section-title"><span role="img" aria-label="target">🎯</span> Objectives</h3>
             <ul className="pro-list">
-              {project.objectives.map((obj, i) => <li key={i}>{obj}</li>)}
+              {project.objectives.map((obj, i) => <li key={i}>• {obj}</li>)}
             </ul>
           </div>
         )}
         {project.methodology && (
-          <div className="pro-section">
-            <h3 className="pro-section-title">Methodology <span role="img" aria-label="method">🧪</span></h3>
+          <div className="pro-section pro-section-card">
+            <h3 className="pro-section-title"><span role="img" aria-label="method">🧪</span> Methodology</h3>
             <p>{project.methodology}</p>
           </div>
         )}
         {project.weekwiseExecution && (
-          <div className="pro-section">
-            <h3 className="pro-section-title">Weekwise Execution <span role="img" aria-label="calendar">📅</span></h3>
+          <div className="pro-section pro-section-divider">
+            <h3 className="pro-section-title"><span role="img" aria-label="calendar">📅</span> Weekwise Execution</h3>
             <div className="weekwise-container">
               {project.weekwiseExecution.map((week, i) => (
-                <div className="week-block" key={i}>
+                <div className="week-block week-block-card" key={i}>
                   <h4 className="week-title">{week.week}</h4>
                   <p className="week-plan">{week.plan}</p>
                   <ul className="week-resources">
                     {week.resources.map((res, j) => (
-                      <li key={j}><a href={res} target="_blank" rel="noopener noreferrer">{res}</a></li>
+                      <li key={j}><a href={res} target="_blank" rel="noopener noreferrer">🔗 Resource {j+1}</a></li>
                     ))}
                   </ul>
                 </div>
@@ -74,41 +78,56 @@ const ProjectDetails = () => {
             </div>
           </div>
         )}
-        
         {project.result && (
-          <div className="pro-section">
-            <h3 className="pro-section-title">Result <span role="img" aria-label="result">🏁</span></h3>
+          <div className="pro-section pro-section-card">
+            <h3 className="pro-section-title"><span role="img" aria-label="result">🏁</span> Result</h3>
             <p>{project.result.summary}</p>
-            {project.result.githubRepo && <a href={project.result.githubRepo} target="_blank" rel="noopener noreferrer">GitHub Repo</a>}
-            {project.result.demoLink && <div><a href={project.result.demoLink} target="_blank" rel="noopener noreferrer">Demo Video</a></div>}
+            <div className="pro-result-links">
+              {project.result.githubRepo && <a href={project.result.githubRepo} target="_blank" rel="noopener noreferrer">🐙 GitHub Repo</a>}
+              {project.result.demoLink && <a href={project.result.demoLink} target="_blank" rel="noopener noreferrer">▶️ Demo Video</a>}
+            </div>
             {project.result.images && project.result.images.map((img, i) => (
               <img key={i} src={img} alt={`result-${i}`} className="pro-result-img" />
             ))}
           </div>
         )}
         {project.futureProspects && (
-          <div className="pro-section">
-            <h3 className="pro-section-title">Future Prospects <span role="img" aria-label="future">🔮</span></h3>
+          <div className="pro-section pro-section-card">
+            <h3 className="pro-section-title"><span role="img" aria-label="future">🔮</span> Future Prospects</h3>
             <p>{project.futureProspects}</p>
           </div>
         )}
-       <div className="pro-meta-row-mentor">
-              <span className="pro-meta-mentor1">Mentor: {project.mentor1}</span>
-              <span className="pro-meta-mentor1">Contact: {project.contact1}</span>
-              
-              </div>
-                     <div className="pro-meta-row-mentor">
-              <span className="pro-meta-mentor1">Mentor: {project.mentor2}</span>
-              <span className="pro-meta-mentor1">Contact: {project.contact2}</span>
-              
-              </div>
-                     <div className="pro-meta-row-mentor">
-              <span className="pro-meta-mentor1">Mentor: {project.mentor3}</span>
-              <span className="pro-meta-mentor1">Contact: {project.contact3}</span>
-              
-              </div>
-             
-       <div className="pro-section">
+      <div className="pro-meta-mentor-table-wrap">
+        <table className="pro-meta-mentor-table">
+          <thead>
+            <tr>
+              <th><span role="img" aria-label="mentor">👨‍🏫</span> Mentor</th>
+              <th><span role="img" aria-label="contact">📧</span> Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            {project.mentor1 && (
+              <tr>
+                <td>{project.mentor1}</td>
+                <td><a href={`mailto:${project.contact1}`} style={{color:"white"}}>{project.contact1}</a></td>
+              </tr>
+            )}
+            {project.mentor2 && (
+              <tr>
+                <td>{project.mentor2}</td>
+                <td><a href={`mailto:${project.contact2}`} style={{color:"white"}}>{project.contact2}</a></td>
+              </tr>
+            )}
+            {project.mentor3 && (
+              <tr>
+                <td>{project.mentor3}</td>
+                <td><a href={`mailto:${project.contact3}`} style={{color:"white"}}  >{project.contact3}</a></td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+       <div className="pro-section pro-section-divider">
           <Query />
         </div>
         

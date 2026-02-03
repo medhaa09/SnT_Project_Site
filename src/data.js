@@ -75,7 +75,7 @@ export const projectsData = [
     tags: ["Python", "OpenCV", "Machine Learning", "ROS"],
     mentor1: "Dr. Rajesh Kumar",
     contact1:"98XXXXXXXX",
-    mentor2: "Dr. Rajkumar war",
+    mentor2: "Dr. Alex Johnson",
     contact2:"98XXXXXXXX",
     mentor3: "Dr. Alex stokesss",
     contact3:"98XXXXXXXX",
